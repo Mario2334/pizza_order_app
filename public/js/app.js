@@ -80651,6 +80651,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Pizza__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Pizza */ "./resources/js/components/Pizza.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_pizzaActions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../actions/pizzaActions */ "./resources/js/actions/pizzaActions.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_4__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -80668,6 +80670,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -80706,9 +80709,15 @@ function (_Component) {
   return PizzaList;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
+PizzaList.Proptypes = {
+  fetchPizzaList: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.func.isRequired,
+  pizza_items: prop_types__WEBPACK_IMPORTED_MODULE_4___default.a.array.isRequired
+};
+
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    pizza_items: state.pizza_items.top_pizza_list
+    pizza_items: state.pizza_items.top_pizza_list // pizza_items came from combine reducers that we have assigned for PizzaReducers
+
   };
 };
 
@@ -80933,7 +80942,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var initialState = {};
 var middleware = [redux_thunk__WEBPACK_IMPORTED_MODULE_1__["default"]];
-var store = Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_js_reducers__WEBPACK_IMPORTED_MODULE_2__["default"], initialState, redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"].apply(void 0, middleware));
+var store = Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_js_reducers__WEBPACK_IMPORTED_MODULE_2__["default"], initialState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["compose"])(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"].apply(void 0, middleware), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
 /* harmony default export */ __webpack_exports__["default"] = (store);
 
 /***/ }),
