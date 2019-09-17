@@ -1,0 +1,68 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.App {
+    text-align: center;
+}
+
+.App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 40vmin;
+    pointer-events: none;
+}
+
+.App-header {
+    background-color: steelblue;
+    height: 70px;
+    padding: 20px;
+    color: white;
+}
+
+.App-link {
+    color: #61dafb;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.Pizza {
+    padding: 5px 25px 10px 25px;
+    max-width: 25%;
+}
+
+.Pizza-list{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.App-header h2{
+    margin: 0;
+}
+.Add-cart{
+    float:inherit;
+    clear: left;
+    margin-left: 20px;
+
+}
+.Count{
+    float: initial;
+    width: 60px;
+    margin-bottom: 8px;
+    margin-left: 7px;
+}
+.Online{
+    width: 110px;
+    height: 110px;
+    bottom: 0;
+    right: 0;
+    z-index: 999;
+    position: fixed;
+
+}
