@@ -1,4 +1,4 @@
-import {FETCH_PIZZA_LIST, ADD_PIZZA,DELETE_PIZZA} from './types'
+import {FETCH_PIZZA_LIST,ADD_PIZZA,DELETE_PIZZA} from './types'
 import axios from "axios";
 
 export const fetchPizzaList=()=>dispatch =>{
@@ -8,10 +8,22 @@ export const fetchPizzaList=()=>dispatch =>{
             payload:response.data
         })
     })
-}
-export const addPizza = (pizza) => dispatch => {
+};
+export const addPizza = (pizza , count) => dispatch => {
+    console.log(pizza);
+    pizza.count = parseInt(count);
+    const pizza_arr = {};
+    pizza_arr[pizza.id] = pizza;
+    console.log(pizza);
     dispatch({
         type:ADD_PIZZA,
-        payload:pizza
+        payload:pizza_arr
+    })
+};
+
+export const deletePizza=(id)=> dispatch =>{
+    dispatch({
+        type:DELETE_PIZZA,
+        payload:id
     })
 };

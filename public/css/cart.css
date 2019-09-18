@@ -35,7 +35,29 @@
   z-index: 1050;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow: scroll;
   outline: 0;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.form-control-sm {
+  width: 45px;
+}
+
+.Close-button {
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.Checkout-button {
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
