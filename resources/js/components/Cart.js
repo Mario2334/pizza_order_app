@@ -3,6 +3,8 @@ import Popup from "reactjs-popup";
 import CartItem from './CartItem'
 import online from '../../static/images/online-order.png'
 import store from "../../store";
+import {connect} from "react-redux";
+import { push } from 'connected-react-router'
 
 class Cart extends Component{
     constructor(props) {
@@ -72,7 +74,7 @@ class Cart extends Component{
                                     <div className="Modal-footer border-top-0 d-flex justify-content-between">
                                         <button type="button" onClick={() => {close();}} className="btn btn-secondary Close-button" data-dismiss="modal">Close
                                         </button>
-                                        <button type="button" className="btn btn-success Checkout-button">Checkout</button>
+                                        <button type="button" onClick={()=>this.props.push('/checkout')} className="btn btn-success Checkout-button">Checkout</button>
                                     </div>
                                 </div>
                             </div>
@@ -112,4 +114,4 @@ class Cart extends Component{
     }
 }
 
-export default Cart
+export default connect(null, { push })(Cart);

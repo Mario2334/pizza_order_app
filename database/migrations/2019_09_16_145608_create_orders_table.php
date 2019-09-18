@@ -18,7 +18,7 @@ class CreateOrdersTable extends Migration
             $table->string("name");
             $table->string("address");
             $table->bigInteger("pin");
-            $table->integer("pizzas");
+            $table->integer("order_items")->nullable();
             $table->timestamps();
         });
     }

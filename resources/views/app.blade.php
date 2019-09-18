@@ -10,6 +10,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/cart.css') }}" rel="stylesheet">
+    <link href="{{asset('css/checkout.css')}}" rel="stylesheet">
 </head>
 <body>
 <div id="app"></div>

@@ -13,7 +13,7 @@ class CreatePizzasTable extends Migration
      */
     public function up()
     {
-        Schema::create('pizzas', function (Blueprint $table) {
+        Schema::create('pizza', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->mediumText('description');
@@ -31,6 +31,6 @@ class CreatePizzasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pizzas');
+        Schema::dropIfExists('pizza');
     }
 }

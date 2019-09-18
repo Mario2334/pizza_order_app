@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    protected $guarded = ["full_name" , "address" , "pin"];
-    protected $fillable = ["pizzas" , "total_order"];
-    public function pizzas(){
+    protected $fillable = ["order_items", "name" , "address" , "pin"];
+
+    public function order_items(){
         return $this->hasMany(Pizza::class);
     }
 }

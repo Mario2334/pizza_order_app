@@ -24,6 +24,6 @@ class PizzaTableSeeder extends Seeder
             array('name'=>'Cheese and Pepperoni' , 'description'=>'This is one of the most popular flavours of pizza in the world. This is Americans favourite flavour as well. The pepperoni is a spicy food, an Italian-American variety of salami (a dry sausage) usually made from cured pork and beef. These are mostly chopped ham cut in circular thin pieces and placed on the pizza to form the topping. This pizza with pepperoni is then topped with a generous load of extra cheese.','url'=>'http://top-10-list.org/wp-content/uploads/2011/05/9_pizza.jpg','buy_count'=>65,'price' => 15.3),
             array('name'=>'Golden Chicken Delight','description'=>'This is another Pizza which is made of Barbeque chicken. In this pizza, barbeque chicken forms the main toppings of the pizza. The barbeque chicken is then sprinkled with toppings of golden corn which is an absolute delight to have.','url'=>'http://top-10-list.org/wp-content/uploads/2011/05/10_pizza.jpg','buy_count'=>34,'price' => 16.7)
         );
-        DB::table('pizzas')->insert($pizzaData);
+        DB::table('pizza')->insert($pizzaData);
     }
 }
