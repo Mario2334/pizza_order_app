@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 import Popup from "reactjs-popup";
 import CartItem from './CartItem'
 import online from '../../static/images/online-order.png'
-import store from "../../store";
+import store from "../store";
 import {connect} from "react-redux";
 import { push } from 'connected-react-router'
 

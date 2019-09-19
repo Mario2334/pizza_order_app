@@ -13,12 +13,13 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('order', function (Blueprint $table) {
             $table->increments('id');
             $table->string("name");
             $table->string("address");
             $table->bigInteger("pin");
-            $table->integer("order_items")->nullable();
+            $table->boolean("is_completed")->default(false);
+            $table->float("total_price");
             $table->timestamps();
         });
     }

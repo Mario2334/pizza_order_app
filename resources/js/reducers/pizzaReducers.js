@@ -1,8 +1,8 @@
-import {FETCH_PIZZA_LIST , ADD_PIZZA, DELETE_PIZZA} from '../actions/types'
+import {FETCH_PIZZA_LIST , ADD_PIZZA, DELETE_PIZZA } from '../actions/types'
 
 const initialState ={
     top_pizza_list:[],
-    add_buy_pizza:{}
+    add_buy_pizza:{},
 };
 
 export default function (state = initialState , action) {
@@ -14,7 +14,6 @@ export default function (state = initialState , action) {
             };
         case ADD_PIZZA:
             var payload = Object.assign(state.add_buy_pizza,action.payload);
-            console.log(payload);
             return {
                 ...state,
                 add_buy_pizza: payload

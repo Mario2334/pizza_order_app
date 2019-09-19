@@ -13,13 +13,13 @@ class CreateOrderItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('order_items', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('orderItem', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('pizza_id')->unsigned();
             $table->integer('count');
             $table->timestamps();
         });
-        Schema::table('order_items', function(Blueprint $table) {
+        Schema::table('orderItem', function(Blueprint $table) {
             $table->foreign('pizza_id')->references('id')->on('pizza');
         });
     }

@@ -1,4 +1,4 @@
-import {FETCH_PIZZA_LIST,ADD_PIZZA,DELETE_PIZZA} from './types'
+import {FETCH_PIZZA_LIST,ADD_PIZZA,DELETE_PIZZA , ADD_SESSION} from './types'
 import axios from "axios";
 
 export const fetchPizzaList=()=>dispatch =>{
@@ -27,3 +27,4 @@ export const deletePizza=(id)=> dispatch =>{
         payload:id
     })
 };
+

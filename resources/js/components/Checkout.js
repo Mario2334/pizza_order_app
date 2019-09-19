@@ -1,20 +1,25 @@
 import React,{Component} from 'react'
-import store from "../../store";
+import store from "../store";
 import axios from "axios";
+import {connect} from "react-redux";
+import {push} from 'connected-react-router'
+import Popup from "reactjs-popup";
 
 class Checkout extends Component{
     constructor(props) {
         super(props);
         this.state={
             order_items:{},
-            total :0
+            total :0,
+            is_loading:false
         };
+        this.addOrder = this.addOrder.bind(this);
         this.state.order_items = store.getState().pizza_items.add_buy_pizza;
     }
     componentWillMount() {
         this.setState({
             total:this.calcTotalOrder()
-        })
+        });
     }
 
     sortOrderItems(){
@@ -33,23 +38,47 @@ class Checkout extends Component{
         console.log(total_order);
         return total_order.toFixed(2)
     }
-    addOrder(evt){
+    addOrder(evt) {
         evt.preventDefault();
-        var form ={
+        let form ={
             name:this.firstName.value + " " + this.lastName.value,
             address:this.address1.value + " " + this.address2.value,
             pin: this.pin.value,
             pizzas:this.sortOrderItems()
         };
-        console.log(form);
-        axios.post("/api/order",form).then( function (response) {
-            console.log(JSON.parse(response.data))
+        this.setState({
+            is_loading:true
+        });
+        axios.post("/api/order",form).then( (response) => {
+            console.log(this);
+            console.log(response.data);
+            if(response.status === 200){
+                let stripe = Stripe('pk_test_pofVORRgdhM49jaZs7sWUJVW00ICq6kbiQ');
+                stripe.redirectToCheckout({
+                    // Make the id field from the Checkout Session creation API response
+                    // available to this file, so you can provide it as parameter here
+                    // instead of the {{CHECKOUT_SESSION_ID}} placeholder.
+                    sessionId: response.data["session"]["id"]
+                }).then((result) => {
+                    alert("Stripe down try again later\n" + result.error.message);
+                    // If `redirectToCheckout` fails due to a browser or network
+                    // error, display the localized error message to your customer
+                    // using `result.error.message`.
+                });
+            }
         } )
 
-    }
+    };
     render() {
         return(
             <div className="container">
+                <Popup open={this.state.is_loading}>
+                    <div className="text-center">
+                        <div className="spinner-border" role="status">
+                            <span className="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                </Popup>
                 <div className="py-5 text-center">
                         <h2>Checkout form</h2>
                         <p className="lead">Below is an example form built entirely with Bootstrap’s form controls. Each
@@ -61,7 +90,7 @@ class Checkout extends Component{
                     <div className="col-md-4 order-md-2 mb-4">
                         <h4 className="d-flex justify-content-between align-items-center mb-3">
                             <span className="text-muted">Your cart</span>
-                            <span className="badge badge-secondary badge-pill">3</span>
+                            <span className="badge badge-secondary badge-pill">{Object.keys(this.state.order_items).length}</span>
                         </h4>
                         <ul className="list-group mb-3">
                             {Object
@@ -70,7 +99,7 @@ class Checkout extends Component{
                                     <div>
                                         <h6 className="my-0">{this.state.order_items[key].name}</h6>
                                     </div>
-                                    <span className="text-muted">{this.state.order_items[key].price}</span>
+                                    <span className="text-muted">{parseFloat(((this.state.order_items[key].price) * this.state.order_items[key].count).toFixed(2))}</span>
                                 </li>)
                             }
                             <li className="list-group-item d-flex justify-content-between">
@@ -114,6 +143,7 @@ class Checkout extends Component{
                                 <label htmlFor="address">Address</label>
                                 <input type="text" ref={(input) => this.address1 = input} className="form-control" id="address" placeholder="1234 Main St"
                                        required=""/>
+                                {}
                                     <div className="invalid-feedback">
                                         Please enter your shipping address.
                                     </div>
@@ -137,7 +167,7 @@ class Checkout extends Component{
                             </div>
 
                             <hr className="mb-4"/>
-                            <button className="btn btn-primary btn-lg btn-block" type="submit">Continue to
+                            <button className="btn btn-primary btn-lg btn-block" {...( (this.state.total>0) ? {} : { disabled: true } )} type="submit">Continue to
                                             checkout
                             </button>
                         </form>
@@ -156,4 +186,5 @@ class Checkout extends Component{
         )
     }
 }
-export default Checkout
+
+export default connect(null, {push})(Checkout);

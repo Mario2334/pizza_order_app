@@ -6,9 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-    protected $fillable = ["order_items", "name" , "address" , "pin"];
+    protected $fillable = [ "name" , "address" , "pin" , "total_price"];
 
-    public function order_items(){
-        return $this->hasMany(Pizza::class);
+    protected $table="order";
+
+    public function items(){
+        return $this->hasMany("App\OrderItem","id");
     }
 }
