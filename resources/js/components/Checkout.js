@@ -82,7 +82,7 @@ class Checkout extends Component{
                 <div className="py-5 text-center">
                         <h2>We deliver Pizza To You</h2>
                         <p className="lead">Give us Your Address and We Will deliver the pizza in under 30 minutes .
-                            We Give You the Pizza For Free!
+                            If We Fail We Give You the Pizza For Free!
                         </p><small>Terms and Conditions Apply</small>
                 </div>
 

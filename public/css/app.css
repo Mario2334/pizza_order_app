@@ -10648,6 +10648,11 @@ a.text-dark:focus {
   text-align: center;
 }
 
+.App-intro {
+  margin-bottom: 40px;
+  margin-top: 20px;
+}
+
 .App-logo {
   -webkit-animation: App-logo-spin infinite 20s linear;
           animation: App-logo-spin infinite 20s linear;

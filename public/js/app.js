@@ -84559,7 +84559,7 @@ function (_Component) {
         className: "py-5 text-center"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "We deliver Pizza To You"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "lead"
-      }, "Give us Your Address and We Will deliver the pizza in under 30 minutes . We Give You the Pizza For Free!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, "Terms and Conditions Apply")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Give us Your Address and We Will deliver the pizza in under 30 minutes . If We Fail We Give You the Pizza For Free!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, "Terms and Conditions Apply")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-md-4 order-md-2 mb-4"
@@ -85050,9 +85050,9 @@ function (_Component) {
         className: "App"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_1__["default"], {
         text: "Welcome To Pizza Time"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         className: "App-intro"
-      }, "Top 10 pizzas to Order"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PizzaList__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Cart__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+      }, "Top 10 Pizzas to Order"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PizzaList__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Cart__WEBPACK_IMPORTED_MODULE_3__["default"], null));
     }
   }]);
 

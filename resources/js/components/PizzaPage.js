@@ -8,7 +8,7 @@ class PizzaPage extends Component{
         return(
             <div className="App">
                 <Header text="Welcome To Pizza Time"/>
-                <p className="App-intro">Top 10 pizzas to Order</p>
+                <h3 className="App-intro">Top 10 Pizzas to Order</h3>
                 <PizzaList/>
                 <Cart/>
             </div>
