@@ -80,10 +80,10 @@ class Checkout extends Component{
                     </div>
                 </Popup>
                 <div className="py-5 text-center">
-                        <h2>Checkout form</h2>
-                        <p className="lead">Below is an example form built entirely with Bootstrap’s form controls. Each
-                            required form group has a validation state that can be triggered by attempting to submit the
-                            form without completing it.</p>
+                        <h2>We deliver Pizza To You</h2>
+                        <p className="lead">Give us Your Address and We Will deliver the pizza in under 30 minutes .
+                            We Give You the Pizza For Free!
+                        </p><small>Terms and Conditions Apply</small>
                 </div>
 
                 <div className="row">
@@ -175,7 +175,7 @@ class Checkout extends Component{
                 </div>
 
                 <footer className="my-5 pt-5 text-muted text-center text-small">
-                    <p className="mb-1">© 2017-2019 Company Name</p>
+                    <p className="mb-1">© 2017-2019 HydeTech LLC</p>
                     <ul className="list-inline">
                         <li className="list-inline-item"><a href="#">Privacy</a></li>
                         <li className="list-inline-item"><a href="#">Terms</a></li>

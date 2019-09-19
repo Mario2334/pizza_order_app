@@ -93,10 +93,11 @@ class OrderController extends Controller
         $lineitems = [];
         $http_origin="";
         if (env("NGROK_URL") == "ngrok") {
-            $http_origin = env("NGROK_URL");
+            $http_origin = $_SERVER["HTTP_ORIGIN"]."/";
+
             }
         else{
-            $http_origin = $_SERVER["HTTP_ORIGIN"]."/";
+            $http_origin = env("NGROK_URL");
         }
         foreach ($validated_data['pizzas'] as $orderItem){
             array_push($lineitems ,

@@ -84557,9 +84557,9 @@ function (_Component) {
         className: "sr-only"
       }, "Loading...")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "py-5 text-center"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Checkout form"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "We deliver Pizza To You"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "lead"
-      }, "Below is an example form built entirely with Bootstrap\u2019s form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Give us Your Address and We Will deliver the pizza in under 30 minutes . We Give You the Pizza For Free!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", null, "Terms and Conditions Apply")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "row"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-md-4 order-md-2 mb-4"
@@ -84697,7 +84697,7 @@ function (_Component) {
         className: "my-5 pt-5 text-muted text-center text-small"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "mb-1"
-      }, "\xA9 2017-2019 Company Name"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      }, "\xA9 2017-2019 HydeTech LLC"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "list-inline"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "list-inline-item"
@@ -84797,6 +84797,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _actions_pizzaActions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../actions/pizzaActions */ "./resources/js/actions/pizzaActions.js");
+/* harmony import */ var reactjs_popup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! reactjs-popup */ "./node_modules/reactjs-popup/reactjs-popup.es.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -84807,13 +84808,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -84832,30 +84834,54 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Pizza).call(this, props));
     _this.numInput = react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef();
+    _this.state = {
+      isEmpty: false
+    };
+    _this.clickAction = _this.clickAction.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(Pizza, [{
+    key: "clickAction",
+    value: function clickAction() {
+      if (this.numInput.current.value > 0) {
+        this.props.addPizza(this.props.pizza, this.numInput.current.value);
+        this.setState({
+          isEmpty: false
+        });
+      } else {
+        this.setState({
+          isEmpty: true
+        });
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
-
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "Pizza"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.pizza.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(reactjs_popup__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        open: this.state.isEmpty
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "text-center"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "badge-danger",
+        role: "status"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "badge badge-danger"
+      }, "Add Quantity")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, this.props.pizza.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         width: "200",
         src: this.props.pizza.url
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.pizza.description), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "number",
         ref: this.numInput,
+        defaultValue: "0",
         step: "1",
         className: "Count"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "button",
         className: "btn btn-info Add-cart",
-        onClick: function onClick() {
-          return _this2.props.addPizza(_this2.props.pizza, _this2.numInput.current.value);
-        }
+        onClick: this.clickAction
       }, "AddtoCart"));
     }
   }]);
@@ -85292,11 +85318,10 @@ __webpack_require__.r(__webpack_exports__);
 
 var initialState = {};
 var history = Object(history__WEBPACK_IMPORTED_MODULE_3__["createBrowserHistory"])();
-var middleware = [redux_thunk__WEBPACK_IMPORTED_MODULE_1__["default"], Object(connected_react_router__WEBPACK_IMPORTED_MODULE_4__["routerMiddleware"])(history)];
+var middleware = [redux_thunk__WEBPACK_IMPORTED_MODULE_1__["default"], Object(connected_react_router__WEBPACK_IMPORTED_MODULE_4__["routerMiddleware"])(history)]; // const extension = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
-var extension = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
-
-var store = Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(Object(_reducers__WEBPACK_IMPORTED_MODULE_2__["default"])(history), initialState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["compose"])(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"].apply(void 0, middleware), extension));
+var store = Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(Object(_reducers__WEBPACK_IMPORTED_MODULE_2__["default"])(history), initialState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["compose"])(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"].apply(void 0, middleware) // extension
+));
 /* harmony default export */ __webpack_exports__["default"] = (store);
 
 /***/ }),

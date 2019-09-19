@@ -11,14 +11,14 @@ export const history = createBrowserHistory();
 
 const middleware = [thunk , routerMiddleware(history)];
 
-const extension = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+// const extension = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
 const store = createStore(
     rootReducer(history) ,
     initialState,
    compose(
        applyMiddleware(...middleware),
-       extension
+       // extension
        ),
     );
 
