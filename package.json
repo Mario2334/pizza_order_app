@@ -21,7 +21,7 @@
         "connected-react-router": "^6.5.2",
         "cross-env": "^5.1",
         "history": "latest",
-        "jquery": "^3.2",
+        "jquery": "^3.5",
         "laravel-mix": "^4.0.7",
         "lodash": "^4.17.13",
         "popper.js": "^1.12",
